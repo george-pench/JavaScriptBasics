@@ -1,1 +1,1 @@
-const textFormatter = require("./TextFormatter");
+const textFormatter = require('./TextFormatter')

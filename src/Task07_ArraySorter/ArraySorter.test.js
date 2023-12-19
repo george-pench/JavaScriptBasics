@@ -1,1 +1,1 @@
-const arraySorter = require("./ArraySorter");
+const arraySorter = require('./ArraySorter')
