@@ -1,6 +1,6 @@
 'use strict'
 
-function getNumbers (arr) {
+function getMinMaxMedianNumbers (arr) {
   if (arr.length === 0) {
     return { min: 0, max: 0, median: 0 }
   }
@@ -22,4 +22,4 @@ function getNumbers (arr) {
   return { min, max, median }
 }
 
-module.exports = getNumbers
+export default getMinMaxMedianNumbers

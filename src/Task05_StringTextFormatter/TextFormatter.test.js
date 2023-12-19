@@ -1,1 +1,1 @@
-const textFormatter = require('./TextFormatter')
+// import textFormatter from './TextFormatter.js'

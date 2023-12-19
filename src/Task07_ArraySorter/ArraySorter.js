@@ -18,3 +18,4 @@ function selection (nums) {
 }
 
 console.log(selection(nums))
+// export default selection

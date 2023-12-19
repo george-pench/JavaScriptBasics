@@ -30,4 +30,4 @@ function getMaxSubSum (arr) {
   return maxSum
 } */
 
-module.exports = getMaxSubSum
+export default getMaxSubSum

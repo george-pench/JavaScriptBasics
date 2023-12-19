@@ -1,4 +1,4 @@
-const binaryConverter = require('./BinaryConverter')
+import binaryConverter from './BinaryConverter.js'
 
 describe('BinaryConverter', () => {
   test('converts binary to decimal', () => {

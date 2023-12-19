@@ -29,4 +29,4 @@ const BinaryConverter = {
   }
 }
 
-module.exports = BinaryConverter
+export default BinaryConverter

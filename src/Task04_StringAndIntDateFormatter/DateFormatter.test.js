@@ -1,4 +1,4 @@
-const DateFormatter = require('./DateFormatter')
+import DateFormatter from './DateFormatter.js'
 
 describe('DateFormatter Tests', () => {
   test('formats "31102011" to "31-10-2011"', () => {

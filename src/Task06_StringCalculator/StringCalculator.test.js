@@ -1,4 +1,4 @@
-const stringCalculator = require('./StringCalculator')
+import stringCalculator from './StringCalculator.js'
 
 describe('StringCalculator', () => {
   test('adds two decimal numbers', () => {

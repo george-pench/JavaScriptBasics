@@ -69,4 +69,4 @@ function noWrap (text, maxLines) {
   return text.split('\n').slice(0, maxLines).join('\n')
 }
 
-module.exports = textFormatter
+export default textFormatter

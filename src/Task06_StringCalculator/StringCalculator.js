@@ -32,4 +32,4 @@ const StringCalculator = {
   }
 }
 
-module.exports = StringCalculator
+export default StringCalculator
