@@ -6,7 +6,7 @@ const Calculator = {
     const cacheResult = localStorage.getItem(cacheKey)
 
     if (cacheResult !== null) {
-      return `Cached: ${cacheResult}`
+      return cacheResult
     }
 
     let result

@@ -28,7 +28,7 @@ function storageMock () {
 
 window.localStorage = storageMock()
 
-describe('arithmeticOperations tests with localStorage', () => {
+describe('Calculator tests with localStorage', () => {
   beforeEach(() => {
     localStorage.clear()
   })
