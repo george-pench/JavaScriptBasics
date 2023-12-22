@@ -1,70 +1,72 @@
-"use strict";
+'use strict'
 
-function textFormatter(text, max_size, max_lines, format_type = "no wrap") {
-  if (text.length > max_size) {
-    text = text.substring(0, max_size);
+function textFormatter (text, maxSize, maxLines, formatType = 'no wrap') {
+  if (text.length > maxSize) {
+    text = text.substring(0, maxSize)
   }
 
-  switch (format_type) {
-    case "word wrap":
-      return wordWrap(text, max_lines);
-    case "character wrap":
-      return characterWrap(text, max_lines);
-    case "sentence wrap":
-      return sentenceWrap(text, max_lines);
-    case "no wrap":
+  switch (formatType) {
+    case 'word wrap':
+      return wordWrap(text, maxLines)
+    case 'character wrap':
+      return characterWrap(text, maxLines)
+    case 'sentence wrap':
+      return sentenceWrap(text, maxLines)
+    case 'no wrap':
     default:
-      return noWrap(text, max_lines);
+      return noWrap(text, maxLines)
   }
 }
 
-function wordWrap(text, max_lines) {
-  let lines = [];
-  let words = text.split(" ");
-  let currentLine = words[0];
+function wordWrap (text, maxLines) {
+  const lines = []
+  const words = text.split(' ')
+  let currentLine = words[0]
 
   for (let i = 1; i < words.length; i++) {
-    let length = currentLine.length + words[i].length;
+    const length = currentLine.length + words[i].length
 
-    if (length + 1 <= max_lines) {
-      currentLine += " " + words[i];
+    if (length + 1 <= maxLines) {
+      currentLine += ' ' + words[i]
     } else {
-      lines.push(currentLine);
-      currentLine = words[i];
+      lines.push(currentLine)
+      currentLine = words[i]
     }
   }
 
-  lines.push(currentLine);
-  return lines.join("\n");
+  lines.push(currentLine)
+  return lines.join('\n')
 }
 
-function characterWrap(text, max_lines) {
-  let lines = [];
+function characterWrap (text, maxLines) {
+  const lines = []
 
-  for (let i = 0; i < text.length; i += max_lines) {
-    lines.push(text.substring(i, Math.min(i + max_lines, text.length)));
+  for (let i = 0; i < text.length; i += maxLines) {
+    lines.push(text.substring(i, Math.min(i + maxLines, text.length)))
   }
-  return lines.join("\n");
+  return lines.join('\n')
 }
 
-function sentenceWrap(text, max_lines) {
-  let lines = [];
-  let sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
-  let currentLine = sentences[0] || "";
+function sentenceWrap (text, maxLines) {
+  const lines = []
+  const sentences = text.match(/[^.!?]+[.!?]+/g) || []
+  let currentLine = sentences[0] || ''
 
   for (let i = 1; i < sentences.length; i++) {
-    if (currentLine.length + sentences[i].length + 1 <= max_lines) {
-      currentLine += " " + sentences[i];
+    if (currentLine.length + sentences[i].length + 1 <= maxLines) {
+      currentLine += ' ' + sentences[i]
     } else {
-      lines.push(currentLine);
-      currentLine = sentences[i];
+      lines.push(currentLine)
+      currentLine = sentences[i]
     }
   }
 
-  lines.push(currentLine);
-  return lines.join("\n");
+  lines.push(currentLine)
+  return lines.join('\n')
 }
 
-function noWrap(text, max_lines) {
-  return text.split("\n").slice(0, max_lines).join("\n");
+function noWrap (text, maxLines) {
+  return text.split('\n').slice(0, maxLines).join('\n')
 }
+
+export default textFormatter

@@ -1,17 +1,19 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    'jest/globals': true
   },
-  extends: 'standard',
+  extends: [
+    'standard',
+    'plugin:jest/recommended'
+  ],
   overrides: [
     {
       env: {
         node: true
       },
-      files: [
-        '.eslintrc.{js,cjs}'
-      ],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script'
       }
@@ -21,6 +23,10 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
+  plugins: [
+    'jest'
+  ],
   rules: {
+    'jest/valid-title': 'off'
   }
 }

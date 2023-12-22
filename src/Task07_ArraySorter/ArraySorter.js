@@ -1,20 +1,61 @@
-"use strict";
+'use strict'
 
-const nums = [7, 3, 6, 2, 4, 1, 5];
+const ArraySorter = {
+  selection (arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+      let minIndex = i
+      for (let j = i + 1; j < arr.length; j++) {
+        if (arr[j] < arr[minIndex]) {
+          minIndex = j
+        }
+      }
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
+    }
+    return arr
+  },
 
-function selection(nums) {
-  for (let i = 0; i < nums.length - 1; i++) {
-    let minIndex = i;
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[j] < nums[minIndex]) {
-        minIndex = j;
+  bubbleSort (arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+      for (let j = 0; j < arr.length - 1 - i; j++) {
+        if (arr[j] > arr[j + 1]) {
+          [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+        }
       }
     }
-    // swap values
-    [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
-  }
+    return arr
+  },
 
-  return nums;
+  insertionSort (arr) {
+    for (let i = 1; i < arr.length; i++) {
+      for (let j = i; j > 0; j--) {
+        if (arr[j] < arr[j - 1]) {
+          [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]]
+        } else {
+          break
+        }
+      }
+    }
+    return arr
+  },
+
+  gnomeSort (arr) {
+    let index = 0
+    while (index < arr.length) {
+      if (index === 0) {
+        index++
+      }
+      if (arr[index] >= arr[index - 1]) {
+        index++
+      } else {
+        let temp = 0
+        temp = arr[index]
+        arr[index] = arr[index - 1]
+        arr[index - 1] = temp
+        index--
+      }
+    }
+    return arr
+  }
 }
 
-console.log(selection(nums));
+export default ArraySorter
