@@ -27,16 +27,16 @@ class DateFormatter {
         throw new Error(`Wrong input format: ${format}`)
     }
 
-    return new Date(year, month - 1, day)
+    return new Date(Date.UTC(year, month - 1, day))
   }
 
   format (outputFormat = 'DD-MM-YYYY') {
     const pad = (num) => num.toString().padStart(2, '0')
 
-    const day = pad(this.date.getDate())
-    const month = pad(this.date.getMonth() + 1)
-    const year = this.date.getFullYear()
-    const monthName = this.date.toLocaleString('default', { month: 'long' })
+    const day = pad(this.date.getUTCDate())
+    const month = pad(this.date.getUTCMonth() + 1)
+    const year = this.date.getUTCFullYear()
+    const monthName = new Date(Date.UTC(year, this.date.getUTCMonth(), day)).toLocaleString('en-US', { month: 'long', timeZone: 'UTC' })
 
     switch (outputFormat) {
       case 'DD-MM-YYYY':
@@ -52,7 +52,7 @@ class DateFormatter {
 
   fromNow () {
     const now = new Date()
-    const diff = now.getFullYear() - this.date.getFullYear()
+    const diff = now.getUTCFullYear() - this.date.getUTCFullYear()
     return `${diff} years ago`
   }
 }

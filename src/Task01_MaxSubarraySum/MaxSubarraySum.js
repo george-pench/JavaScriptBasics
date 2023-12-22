@@ -1,7 +1,7 @@
 'use strict'
 
 // O(n^2) complexity
-function getMaxSubSum (arr) {
+export default function getMaxSubSum (arr) {
   let maxSum = 0
   for (let i = 0; i < arr.length; i++) {
     let currentSum = 0
@@ -15,19 +15,17 @@ function getMaxSubSum (arr) {
 }
 
 // O(n) Linear complexity
-/* function getMaxSubSum (arr) {
+export function getMaxSubSumLinear (arr) {
   let maxSum = 0
   let currentSum = 0
 
   for (let i = 0; i < arr.length; i++) {
     currentSum += arr[i]
-    maxSum = Math.max(maxSum, currentSum);
+    maxSum = Math.max(maxSum, currentSum)
     if (currentSum < 0) {
       currentSum = 0
     }
   }
 
   return maxSum
-} */
-
-export default getMaxSubSum
+}
